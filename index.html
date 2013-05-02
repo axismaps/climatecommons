@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Climate Commons</title>
+		<meta property="og:title" content="Climate Commons" />
+		<meta property="og:description" content="Mapping media coverage of climate change and the vital data needed to understand its causes and impacts." />
+		<meta property="og:image" content="http://climatecommons.earthjournalism.net/map/images/facebook.png" />
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content="http://climatecommons.earthjournalism.net/map/"/>
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Archivo+Narrow:700,400' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" type="text/css" href="main.css" />
+		<link rel="stylesheet" type="text/css" href="lib/fancybox/jquery.fancybox.css" />
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyAgANGbOpNohYK-qrz7mgeY3YqdEjjAAdU&sensor=false"></script>
+		<script type="text/javascript" src="lib/fancybox/jquery.fancybox.pack.js"></script>
+		
+		<script type="text/javascript" src="com/HexGrid.js"></script>
+		<script type="text/javascript" src="com/ejn.min.js"></script>
+		<script type="text/javascript"> 
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-39763926-1']);
+			_gaq.push(['_trackPageview']);
+			
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+  		</script>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<div id="social">
+			<img src="images/ejn_logo.png" alt="Earth Journalism Network" />
+			<a href="http://www.internews.org/" target="_blank"><img src="images/internews_logo.png" alt="Internews" /></a>
+			<div class="fb-like" data-href="http://climatecommons.earthjournalism.net/map/" data-send="true" data-layout="button_count" data-width="250" data-show-faces="false"></div>
+			<div>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-via="ClimateCommons" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+		</div>
+		<div id="header">
+			<div id="title"><b>Climate</b>Commons</div>
+			<div id="extras">
+				<a href="#" id="story_submit">Submit a story</a> &nbsp; | &nbsp; <a href="#" id="about_map">About this map</a> &nbsp; | &nbsp; <a href="mailto:cscherer@internews.org">Contact us</a><br />
+				<input type="text" id="search" value="Search the news..." />
+				<div id="close"></div>
+				<div id="results"></div>
+				<div id="filter_button">Filter stories</div>
+			</div>
+			<div id="tabs"></div>
+		</div>
+		<div id="layers"></div>
+		<div id="filter"><b>Select to view by category:</b><br /></div>
+		<div id="stories"></div>
+		<div id="pagination">
+			<div id="prev_page" class="arrow inactive">&#9664;</div>
+			<div id="dots"></div>
+			<div id="next_page" class="arrow">&#9654;</div>
+		</div>
+    	<div id="map"></div>
+    	<div id="legend">
+	    	<div id="hide"></div>
+	    	<div id="items"></div>
+    	</div>
+    </body>
+</html>

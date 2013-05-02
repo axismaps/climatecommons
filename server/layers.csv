@@ -1,0 +1,11 @@
+name,id,tab,parent,arr,idw,source,link,color,unit
+Methane Emissions,1Z5oKH7juWpEQT6gQkV4jzJp9hug4Sq1zIJCLkso,Emissions,Industrial,10,0,EPA,http://www.epa.gov/ghgreporting/ghgdata/datasets.html,,mmtCO2e
+Total Direct Emissions,1N6SxHT9Jwl4RcNMwfrcJ77MEvAjlRxv_MIxBb0k,Emissions,Industrial,8,0,EPA,http://www.epa.gov/ghgreporting/ghgdata/datasets.html,,mmtCO2e
+CO2 Emissions,16AB6QFS9zcIX1oJhSMWp5xeBTPwFLu2k_HOgkxY,Emissions,Industrial,9,0,EPA,http://www.epa.gov/ghgreporting/ghgdata/datasets.html,,mmtCO2e
+Fires,1i1JsTJx5vZtAIy3GI_Dp4LdLYCuvecYL-ugZgxU,Weather,Extreme Events,6,0,USGS,http://rmgsc.cr.usgs.gov/outgoing/GeoMAC/current_year_fire_data/current_year_all_states/,Reds,acres
+Temperature,1VvGXibz7A1vE6X3yr7i4wRjMa1i3BdxXhm7vf7k,Weather,Normals,1,1,NOAA,http://www1.ncdc.noaa.gov/pub/data/ccd-data/CCD-2011.pdf,Temp,°F
+Precipitation,1agAMdQ6nKaijM1KhR5qv0GVq320kNkZnsfKk2mM,Weather,Normals,2,1,NOAA,http://www1.ncdc.noaa.gov/pub/data/ccd-data/CCD-2011.pdf,Blues,inches
+Winds,1fBxTy3rye9udHV5MjIXfURgGnSsyjObrgpI_1TU,Weather,Normals,3,1,NOAA,http://www1.ncdc.noaa.gov/pub/data/ccd-data/CCD-2011.pdf,BuPu,knots
+Damaging Winds,1aMHSwV691d8pueoSfV7vy65_9Vjti2Eg8FPTyqU,Weather,Extreme Events,5,0,NOAA,http://www.spc.noaa.gov/wcm/#data,RdPu,events
+Average Temperature,1A6_3Ju6aODPkxJ3OxdR7Z8S6eONuF38aqEO2KoA,Weather,Anomolies,11,1,NOAA,,Reds,°F
+Average Precipitation,16m2u_NYD8JuSuwkdy9d2uerhmfhJx6tGidC5sB4,Weather,Anomolies,12,1,NOAA,,Blues,in
