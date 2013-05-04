@@ -1,6 +1,6 @@
 @font-face{
 	font-family: 'DejaVuSans';
-	src: url( 'fonts/DejaVuSans.ttf' ), url( 'fonts/DejaVuSans.eot' );
+	src: url( '../fonts/DejaVuSans.ttf' ), url( '../fonts/DejaVuSans.eot' );
 }
 
 html{
@@ -106,7 +106,7 @@ a{
 #close{
 	height: 18px;
 	width: 18px;
-	background-image: url(images/close.png);
+	background-image: url(../images/close.png);
 	position: absolute;
 	top: 95px;
 	right: 25px;
@@ -120,7 +120,7 @@ a{
 	width: 125px;
 	position: absolute;
 	right: 15px;
-	background: #b3b3b3 url(images/filter.png) no-repeat 15px 10px;
+	background: #b3b3b3 url(../images/filter.png) no-repeat 15px 10px;
 	line-height: 32px;
 	color: white;
 	text-align: center;
@@ -171,7 +171,7 @@ a{
 	top: 10px;
 	line-height: 29px;
 	font-weight: 700;
-	background: #666 url(images/triangle.png) center bottom no-repeat;
+	background: #666 url(../images/triangle.png) center bottom no-repeat;
 }
 
 .tab.selected{
@@ -207,7 +207,7 @@ a{
 #layers{
 	height: 40px;
 	line-height: 40px;
-	background-image: url(images/hatch.png);
+	background-image: url(../images/hatch.png);
 	position: relative;
 	margin-right: 15px;
 	z-index: 2;
@@ -323,7 +323,7 @@ a{
 }
 
 #stories .story.even{
-	background-image: url(images/hatch.png);
+	background-image: url(../images/hatch.png);
 }
 
 .story.closed p, .story.closed img, .story.closed a{
@@ -436,7 +436,7 @@ a{
 	width: 15px;
 	padding: 5px;
 	float: right;
-	background: url(images/left.png) no-repeat center center;
+	background: url(../images/left.png) no-repeat center center;
 	margin: 2px -15px 0 5px;
 	cursor: pointer;
 }
@@ -450,7 +450,7 @@ a{
 #loader{
 	width: 100%;
 	height: 100px;
-	background: #fff url('images/ajax-loader.gif') no-repeat center;
+	background: #fff url(../images/ajax-loader.gif) no-repeat center;
 }
 
 /* SOCIAL */
