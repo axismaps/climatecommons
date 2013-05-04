@@ -3,6 +3,7 @@ yui-jar =			tools/yuicompressor-2.4.8pre.jar
 
 html-replace =		$(build-dir)index.html
 html-prereq =		about.html \
+					index.html \
 					submit.html \
 
 dir-prereq =		data \
