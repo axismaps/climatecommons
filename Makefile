@@ -1,35 +1,30 @@
 build-dir =			Build/
 yui-jar =			tools/yuicompressor-2.4.8pre.jar
 
-html-replace =		$(build-dir)map.html
-html-prereq =		ie8.html \
-					index.html \
-					map.html \
+html-replace =		$(build-dir)index.html
+html-prereq =		about.html \
+					submit.html \
 
 dir-prereq =		data \
+					fonts \
 					images \
 					lib \
-					tiles \
 
 css-path =			css/
 css-build-path = 	$(build-dir)css/
-css-page-target =	$(css-build-path)vilnius.min.css
+css-page-target =	$(css-build-path)ejn.min.css
 css-page-prereq =	$(css-path)main.css
 
 js-path =			com/
 js-build-path =		$(build-dir)com/
-js-page-target =	$(js-build-path)vilnius.min.js
-js-page-prereq =	$(js-path)category.js \
-					$(js-path)category.js \
-					$(js-path)filter.js \
-					$(js-path)gallery.js \
-					$(js-path)intro.js \
+js-page-target =	$(js-build-path)ejn.min.js
+js-page-prereq =	$(js-path)filter.js \
+					$(js-path)HexGrid.js \
+					$(js-path)layers.js \
 					$(js-path)map.js \
-					$(js-path)place.js \
+					$(js-path)news.js \
 					$(js-path)search.js \
-					$(js-path)time.js \
-					$(js-path)tours.js \
-					$(js-path)utility.js \
+					$(js-path)styles.js \
 					$(js-path)view.js \
 	
 all: $(css-page-target) $(js-page-target)
