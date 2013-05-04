@@ -8,7 +8,8 @@ var layers = {},
 		RdPu : [ "#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1", "#dd3497", "#ae017e", "#7a0177" ],
 		Blues : [ "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#084594" ],
 		Reds : [ "#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d" ],
-		YlOrRd : [ "#ffffb2", "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c", "#b10026" ]
+		YlOrRd : [ "#ffffb2", "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c", "#b10026" ],
+		RdYlBu : [ "#d73027", "#fc8d59", "#fee090", "#e0f3f8", "#91bfdb", "#4575b4" ]
 	},
 	selectedLayer;
 
@@ -144,9 +145,30 @@ function load_layer( l )
 	{
 		if( l.idw == "1" )
 		{
-			layer.colors( c || colors.OrBl )
-				.breaks( getBreaks( l.data, 7 ) )
-				.idw( l.data );
+			if( l.color == "RdYlBu" )
+			{
+				var pos = $( l.data ).filter( function()
+				{
+					return this.val >= 0;
+				}); 
+				var neg = $( l.data ).filter( function()
+				{
+					return this.val < 0;
+				}); 
+				var b1 = getBreaks( neg, 3 );
+				var b2 = getBreaks( pos, 3 );
+				b1.pop();
+				var breaks = b1.concat( b2 );
+				layer.colors( colors.RdYlBu )
+					.breaks( breaks )
+					.idw( l.data );
+			}
+			else
+			{
+				layer.colors( c || colors.OrBl )
+					.breaks( getBreaks( l.data, 7 ) )
+					.idw( l.data );
+			}
 		}
 		else
 		{
@@ -172,9 +194,31 @@ function load_layer( l )
 				l.data = json;
 				if( l.idw == "1" )
 				{
-					layer.colors( c || colors.OrBl )
-						.breaks( getBreaks( l.data, 7))
-						.idw( l.data );
+					if( l.color == "RdYlBu" )
+					{
+						var pos = $( l.data ).filter( function()
+						{
+							return this.val >= 0;
+						}); 
+						var neg = $( l.data ).filter( function()
+						{
+							return this.val < 0;
+						}); 
+						var b1 = getBreaks( neg, 3 );
+						var b2 = getBreaks( pos, 3 );
+						b1.pop();
+						var breaks = b1.concat( b2 );
+						
+						layer.colors( colors.RdYlBu )
+							.breaks( breaks )
+							.idw( l.data );
+					}
+					else
+					{
+						layer.colors( c || colors.OrBl )
+							.breaks( getBreaks( l.data, 7))
+							.idw( l.data );
+					}
 				}
 				else
 				{
