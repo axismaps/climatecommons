@@ -9,7 +9,7 @@ var layers = {},
 		Blues : [ "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#084594" ],
 		Reds : [ "#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d" ],
 		YlOrRd : [ "#ffffb2", "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c", "#b10026" ],
-		RdYlBu : [ "#d73027", "#fc8d59", "#fee090", "#e0f3f8", "#91bfdb", "#4575b4" ]
+		RdYlBu : [ "#4575b4", "#91bfdb", "#e0f3f8", "#fee090", "#fc8d59", "#d73027" ]
 	},
 	selectedLayer;
 
