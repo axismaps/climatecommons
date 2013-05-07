@@ -1,13 +1,11 @@
 <?php
 
-	include( 'google.php' );
 	include_once( 'constants.php' );
+	include( 'get.php' );
 	
 	$json = array();
 	
-	$ft = new googleFusion( 'changeofstates@gmail.com', 'EJN_2012' );
-	
-	$layers = $ft->query( "SELECT * FROM " . LAYERS . " ORDER BY arr" );
+	$layers = get( "SELECT * FROM " . LAYERS . " ORDER BY arr" );
 	
 	foreach( $layers as $l )
 	{
