@@ -1,7 +1,7 @@
 <?php
 
 	//STORIES TABLE
-	define( "STORIES", "1LjIxy_raAoZW8x7aRWTknlb-ntvsJ0fE2WtTX80" );
+	define( "STORIES", "1OWj33t9sIiyUCJT-tsspaDg0iXo6v7KaIFd2vnI" );
 	
 	//STORY CATEGORIES
 	define( "CATEGORIES", "1kUEZhrTb4DMQPNYcPk4YeFlrBUSMY7_bB5gSpWc" );
