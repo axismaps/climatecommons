@@ -56,7 +56,7 @@ function build_news()
 			.append(
 				$( document.createElement( 'h2' ) ).html( stories[ i ].title )
 			);
-		if( stories[ i ].image ) story.append( $( document.createElement( 'img' ) ).attr( "src", "http:" + stories[ i ].image ) );
+		if( stories[ i ].image ) story.append( $( document.createElement( 'img' ) ).attr( "src", stories[ i ].image ) );
 		
 		story
 			.append( 
