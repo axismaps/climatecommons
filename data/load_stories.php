@@ -1,13 +1,15 @@
 <?php
 
+	include( 'google.php' );
 	include_once( 'constants.php' );
-	include( 'get.php' );
 	
 	date_default_timezone_set( 'UTC' );
 	
 	$json = array();
 	
-	$news = get( "SELECT * FROM " . STORIES . " WHERE published = 1 ORDER BY date DESC LIMIT 500" );
+	$ft = new googleFusion( 'changeofstates@gmail.com', 'EJN_2012' );
+	
+	$news = $ft->query( "SELECT * FROM " . STORIES . " WHERE published = 1 ORDER BY date DESC LIMIT 500" );
 	
 	$dates = array();
 	foreach( $news as $n )
