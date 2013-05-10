@@ -7,9 +7,9 @@
 	
 	$json = array();
 	
-	$ft = new googleFusion( 'changeofstates@gmail.com', 'EJN_2012' );
+	$ft = google_auth();
 	
-	$news = $ft->query( "SELECT * FROM " . STORIES . " WHERE published = 1 ORDER BY date DESC LIMIT 500" );
+	$news = fusion_decode( $ft->query->sql( "SELECT * FROM " . STORIES . " WHERE published = 1 ORDER BY date DESC LIMIT 500" ) );
 	
 	$dates = array();
 	foreach( $news as $n )

@@ -11,9 +11,9 @@
 	
 	$geo = new Services_GeoNames();
 
-	$ft = new googleFusion( 'changeofstates@gmail.com', 'EJN_2012' );
+	$ft = google_auth();
 	
-	$cats = $ft->query( "SELECT * FROM " . CATEGORIES );
+	$cats = fusion_decode( $ft->query->sql( "SELECT * FROM " . CATEGORIES ) );
 
 	foreach( $cats as $cat )
 	{	
@@ -63,13 +63,13 @@
 		}
 		
 		$priority = array();
-		$sources = $ft->query( "SELECT * FROM " . SOURCES );
+		$sources = fusion_decode( $ft->query->sql( "SELECT * FROM " . SOURCES ) );
 		foreach( $sources as $s )
 		{
 			$priority[ $s[ 'source' ] ] = $s[ 'rank' ];
 		}
 		
-		$curr = $ft->query( "SELECT * FROM " . STORIES );
+		$curr = fusion_decode( $ft->query->sql( "SELECT * FROM " . STORIES ) );
 		$arr = array();
 		$i = count( $curr );
 		

@@ -4,9 +4,9 @@
 	
 	$json = array();
 	
-	$ft = new googleFusion( 'changeofstates@gmail.com', 'EJN_2012' );
+	$ft = google_auth();
 	
-	$data = $ft->query( "SELECT lat, lon, val FROM " . $_GET[ 'id' ] . " ORDER BY ST_DISTANCE( lat, LATLNG( 90, 0 ) )" );
+	$data = fusion_decode( $ft->query->sql( "SELECT lat, lon, val FROM " . $_GET[ 'id' ] . " ORDER BY ST_DISTANCE( lat, LATLNG( 90, 0 ) )" ) );
 	
 	if( $_GET[ 'max' ] )
 	{

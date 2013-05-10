@@ -16,12 +16,19 @@
 			$query .= ") VALUES (";
 			foreach( $arr[ $i ] as $key => $value )
 			{
-				$query .= "'" . $value . "',";
+				if( is_numeric( $value ) || $key == "latitude" || $key == "longitude" )
+				{
+					$query .= $value . ",";
+				}
+				else
+				{
+					$query .= "'" . htmlentities( $value, ENT_QUOTES ) . "',";
+				}
 			}
 			$query = substr( $query, 0, -1 );
 			$query .= "); ";
 		}
 		$query = substr( $query, 0, -2 );
-		$output = $ft->query( $query );
+		$output = $ft->query->sql( $query );
 	}
 ?>

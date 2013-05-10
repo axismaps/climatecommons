@@ -5,9 +5,9 @@
 	
 	$json = array();
 	
-	$ft = new googleFusion( 'changeofstates@gmail.com', 'EJN_2012' );
+	$ft = google_auth();
 	
-	$layers = $ft->query( "SELECT * FROM " . LAYERS . " ORDER BY arr" );
+	$layers = fusion_decode( $ft->query->sql( "SELECT * FROM " . LAYERS . " ORDER BY arr" ) );
 	
 	foreach( $layers as $l )
 	{
