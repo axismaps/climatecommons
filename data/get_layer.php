@@ -1,11 +1,12 @@
 <?php
 
-	include_once( 'constants.php' );
-	include( 'get.php' );
+	include( 'google.php' );
 	
 	$json = array();
 	
-	$data = get( "SELECT lat, lon, val FROM " . $_GET[ 'id' ] . " ORDER BY ST_DISTANCE( lat, LATLNG( 90, 0 ) )" );
+	$ft = new googleFusion( 'changeofstates@gmail.com', 'EJN_2012' );
+	
+	$data = $ft->query( "SELECT lat, lon, val FROM " . $_GET[ 'id' ] . " ORDER BY ST_DISTANCE( lat, LATLNG( 90, 0 ) )" );
 	
 	if( $_GET[ 'max' ] )
 	{
