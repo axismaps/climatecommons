@@ -9,7 +9,7 @@
 	
 	$ft = google_auth();
 	
-	$news = fusion_decode( $ft->query->sql( "SELECT * FROM " . STORIES . " WHERE published = 1 ORDER BY date DESC LIMIT 500" ) );
+	$news = fusion_decode( $ft->query->sql( "SELECT * FROM " . STORIES . " WHERE published = '1' ORDER BY date DESC LIMIT 500" ) );
 	
 	$dates = array();
 	foreach( $news as $n )

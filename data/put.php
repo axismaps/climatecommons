@@ -22,7 +22,7 @@
 				}
 				elseif( $key != "url" )
 				{
-					$query .= "'" . htmlentities( $value, ENT_QUOTES ) . "',";
+					$query .= "'" . htmlentities( $value, ENT_QUOTES, "UTF-8" ) . "',";
 				}
 				else
 				{
