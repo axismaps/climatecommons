@@ -1,5 +1,8 @@
 <?php
 
+	//API KEY
+	define( "API_KEY", "AIzaSyAvgsfxVsWTsZhiniD19ROm9aMW1In60sI" );
+
 	//STORIES TABLE
 	define( "STORIES", "1VNDeTYbg17USwdI4oWSfwYX4sdD2P33jCN00B1E" );
 	
