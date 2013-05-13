@@ -17,7 +17,7 @@
 
 	foreach( $cats as $cat )
 	{	
-		$news = simplexml_load_file('http://ws.geonames.net/rssToGeoRSS?feedUrl=' . urlencode( 'http://news.google.com/news?q=' . urlencode( $cat[ 'search' ] ) . '&output=rss' ) . '&username=axismaps' );
+		$news = simplexml_load_file('http://api.geonames.org/rssToGeoRSS?feedUrl=' . urlencode( 'http://news.google.com/news?q=' . urlencode( $cat[ 'search' ] ) . '&output=rss' ) . '&username=axismaps' );
 		
 		$feeds = array();
 		
