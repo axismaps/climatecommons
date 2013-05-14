@@ -48,14 +48,14 @@
 					preg_match('@src="([^"]+)"@', $item->description, $match);
 					$parts = explode('<font size="-1">', $item->description);
 				
-					$feeds[ $i ][ 'title'] = preg_replace( "/ - (?!.* - ).*$/uim", "", strip_tags( $item->title ) );
+					$feeds[ $i ][ 'title'] = preg_replace( "/ - (?!.* - ).*$/uim", "", htmlspecialchars( strip_tags( $item->title ) ) );
 					$feeds[ $i ][ 'url' ] = ( string ) $item->link;
 					if( isset( $match[ 1 ] ) )
 					{
 						$feeds[ $i ][ 'image' ] = $match[ 1 ];
 					}
-					$feeds[ $i ][ 'source' ] = preg_replace("/ \\.\\.\\..*$/uim", "...", strip_tags( $parts[ 1 ] ) );
-					$feeds[ $i ][ 'text' ] = preg_replace("/ \\.\\.\\..*$/uim", "...", strip_tags( $parts[ 2 ] ) );
+					$feeds[ $i ][ 'source' ] = strip_tags( $parts[ 1 ] );
+					$feeds[ $i ][ 'text' ] = preg_replace("/ \\.\\.\\..*$/uim", "...", htmlspecialchars( strip_tags( $parts[ 2 ] ) ) );
 					$feeds[ $i ][ 'category' ] = $cat[ 'category' ];
 				}
 			}
