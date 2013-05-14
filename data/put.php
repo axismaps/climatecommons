@@ -20,13 +20,9 @@
 				{
 					$query .= $value . ",";
 				}
-				elseif( $key != "url" )
-				{
-					$query .= "'" . htmlentities( $value, ENT_QUOTES, "UTF-8" ) . "',";
-				}
 				else
 				{
-					$query .= "'" . $value . "',";
+					$query .= "'" . str_replace( "'", "\'", $value ) . "',";
 				}
 			}
 			$query = substr( $query, 0, -1 );
