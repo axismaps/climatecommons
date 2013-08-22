@@ -98,14 +98,7 @@
 				{
 					$item[ 'date' ] = date( "M j, Y" );
 					$item[ 'id' ] = $i;
-					if( $item[ 'latitude' ] == 39.76 && $item[ 'longitude' ] == -98.5 )
-					{
-						$item[ 'published' ] = 0;
-					}
-					else
-					{
-						$item[ 'published' ] = 1;
-					}
+					$item[ 'published' ] = 0;
 					if( isset( $priority[ $item[ 'source' ] ] ) )
 					{
 						$item[ 'priority' ] = $priority[ $item[ 'source' ] ];
