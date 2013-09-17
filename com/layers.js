@@ -81,6 +81,7 @@ function select_radio()
 {
 	$( "#legend select" ).remove();
 	$( "#legend #items" ).empty();
+	$( "#legend #stepper" ).empty();
 	
 	var tab = $( this ).attr( "name" );
 	var rad = $( this ).val();
@@ -98,6 +99,7 @@ function select_radio()
 			.change( function( e )
 			{
 				$( "#legend #items" ).empty();
+				$( "#legend #stepper" ).empty();
 				var selected = $( this ).children( ":selected" );
 				selectedLayer = selected.html();
 				var tab = selected.attr( "name" );
@@ -140,6 +142,33 @@ function select_none()
 
 function load_layer( l )
 {
+	if ( l.children ){
+		$("#legend #stepper")
+			.append( 
+				$("<button type='button' class='step'>&lt;</button>")
+					.click( function(){
+						var month = $("#current")[0];
+						month.data.i--;
+						if ( month.data.i < 0 ) month.data.i = month.data.layers.length - 1;
+						$("#current").html( month.data.layers[month.data.i].name );
+						load_layer( month.data.layers[month.data.i] );
+					})
+			)
+			.append( "<p id='current'>" + l.children[0].name + "</p>" )
+			.append( 
+				$("<button type='button' class='step'>&gt;</button>")
+					.click( function(){
+						var month = $("#current")[0];
+						month.data.i++;
+						if ( month.data.i >= month.data.layers.length ) month.data.i = 0;
+						$("#current").html( month.data.layers[month.data.i].name );
+						load_layer( month.data.layers[month.data.i] );
+					})
+			);
+		$("#current")[0].data = { i: 0, layers: l.children };
+		load_layer( l.children[0] );
+		return l.children;
+	}
 	var c =  colors[ l.color ];
 	if( l.data )
 	{

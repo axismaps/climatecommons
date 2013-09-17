@@ -402,7 +402,7 @@ a{
 /* LEGEND */
 #legend{
 	padding: 15px 20px;
-	max-width: 200px;
+	width: 235px;
 	position: absolute;
 	top: 160px;
 	left: 0;
@@ -430,6 +430,34 @@ a{
 
 #legend select{
 	font-size: 16px;
+	width: 215px;
+}
+
+#legend #stepper{
+	text-align: center;
+}
+
+#legend #stepper p{
+	display: inline-block;
+	margin: 8px;
+	color: #000;
+	font: 13px/16px DejaVuSans, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+
+
+#legend #stepper p.step{
+	cursor: pointer;
+}
+
+#legend #stepper p.step:hover{
+	text-decoration: underline;
+}
+
+#legend #stepper p#current{
+	width: 80px;
 }
 
 #hide{
