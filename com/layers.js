@@ -143,7 +143,22 @@ function select_none()
 function load_layer( l )
 {
 	if ( l.children ){
-		$("#legend #stepper")
+		var div1 = $("<div>");
+		for ( var i=0; i < l.children.length; i++ ){
+			div1.append(
+				$("<p>" + l.children[i].name + "</p>")
+					.attr("id","c" + i)
+					.click( function(){
+						var month = $("#current")[0];
+						month.data.i = $(this).attr("id").substr(1);
+						$("#current").html( month.data.layers[month.data.i].name );
+						load_layer( month.data.layers[month.data.i] );
+					})
+			)
+		}
+
+		var div2 = $("<div>");
+		div2
 			.append( 
 				$("<button type='button' class='step'>&lt;</button>")
 					.click( function(){
@@ -165,6 +180,8 @@ function load_layer( l )
 						load_layer( month.data.layers[month.data.i] );
 					})
 			);
+
+		$("#legend #stepper").append(div1).append(div2);
 		$("#current")[0].data = { i: 0, layers: l.children };
 		load_layer( l.children[0] );
 		return l.children;

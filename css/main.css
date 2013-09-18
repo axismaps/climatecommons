@@ -433,30 +433,33 @@ a{
 	width: 215px;
 }
 
-#legend #stepper{
+#legend #stepper div:last-child{
 	text-align: center;
 }
 
-#legend #stepper p{
+#legend #stepper div:first-child p{
+	display:inline-block;
+	margin: 3px 0;
+	padding: 0 5px;
+	border-right: 1px solid #999;
+	cursor: pointer;
+}
+
+#legend #stepper div:first-child p:hover{
+	text-decoration: underline;
+}
+
+#legend #stepper div:first-child p:last-child{
+	border-right: none;
+}
+
+#legend #stepper p#current{
 	display: inline-block;
 	margin: 8px;
 	color: #000;
 	font: 13px/16px DejaVuSans, sans-serif;
 	font-weight: bold;
 	font-size: 13px;
-}
-
-
-
-#legend #stepper p.step{
-	cursor: pointer;
-}
-
-#legend #stepper p.step:hover{
-	text-decoration: underline;
-}
-
-#legend #stepper p#current{
 	width: 80px;
 }
 
