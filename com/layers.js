@@ -11,7 +11,9 @@ var layers = {},
 		YlOrRd : [ "#ffffb2", "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c", "#b10026" ],
 		RdYlBu : [ "#4575b4", "#91bfdb", "#e0f3f8", "#fee090", "#fc8d59", "#d73027" ]
 	},
-	selectedLayer;
+	tempScale = [ -3,-2,-1,1,2,3 ],
+	precipScale = [ 30,60,90,120,150,180 ],
+	selectedLayer;	
 
 function get_layers()
 {
@@ -189,22 +191,27 @@ function load_layer( l )
 	var c =  colors[ l.color ];
 	if( l.data )
 	{
+		var scale = l.scale;
 		if( l.idw == "1" )
 		{
 			if( l.color == "RdYlBu" )
 			{
-				var pos = $( l.data ).filter( function()
-				{
-					return this.val >= 0;
-				}); 
-				var neg = $( l.data ).filter( function()
-				{
-					return this.val < 0;
-				}); 
-				var b1 = getBreaks( neg, 3 );
-				var b2 = getBreaks( pos, 3 );
-				b1.pop();
-				var breaks = b1.concat( b2 );
+				if (!scale ){
+					var pos = $( l.data ).filter( function()
+					{
+						return this.val >= 0;
+					}); 
+					var neg = $( l.data ).filter( function()
+					{
+						return this.val < 0;
+					}); 
+					var b1 = getBreaks( neg, 3 );
+					var b2 = getBreaks( pos, 3 );
+					b1.pop();
+					var breaks = b1.concat( b2 );
+				} else {
+					breaks = getBreaks( l.data, 7, false, scale )
+				}
 				layer.colors( colors.RdYlBu )
 					.breaks( breaks )
 					.idw( l.data );
@@ -212,14 +219,14 @@ function load_layer( l )
 			else
 			{
 				layer.colors( c || colors.OrBl )
-					.breaks( getBreaks( l.data, 7 ) )
+					.breaks( getBreaks( l.data, 7, false, scale ) )
 					.idw( l.data );
 			}
 		}
 		else
 		{
 			layer.colors( c || colors.YlOrBr )
-				.breaks( getBreaks( l.data, 7, true ) )
+				.breaks( getBreaks( l.data, 7, true, scale ) )
 				.bin( l.data );
 		}
 		build_legend( l );
@@ -237,24 +244,28 @@ function load_layer( l )
 			dataType : "json",
 			success : function( json )
 			{
+				var scale = l.scale;
 				l.data = json;
 				if( l.idw == "1" )
 				{
 					if( l.color == "RdYlBu" )
 					{
-						var pos = $( l.data ).filter( function()
-						{
-							return this.val >= 0;
-						}); 
-						var neg = $( l.data ).filter( function()
-						{
-							return this.val < 0;
-						}); 
-						var b1 = getBreaks( neg, 3 );
-						var b2 = getBreaks( pos, 3 );
-						b1.pop();
-						var breaks = b1.concat( b2 );
-						
+						if (!scale ){
+							var pos = $( l.data ).filter( function()
+							{
+								return this.val >= 0;
+							}); 
+							var neg = $( l.data ).filter( function()
+							{
+								return this.val < 0;
+							}); 
+							var b1 = getBreaks( neg, 3 );
+							var b2 = getBreaks( pos, 3 );
+							b1.pop();
+							var breaks = b1.concat( b2 );
+						} else {
+							breaks = getBreaks( l.data, 7, false, scale )
+						}
 						layer.colors( colors.RdYlBu )
 							.breaks( breaks )
 							.idw( l.data );
@@ -262,14 +273,14 @@ function load_layer( l )
 					else
 					{
 						layer.colors( c || colors.OrBl )
-							.breaks( getBreaks( l.data, 7))
+							.breaks( getBreaks( l.data, 7, false, scale ) )
 							.idw( l.data );
 					}
 				}
 				else
 				{
 					layer.colors( c || colors.YlOrBr )
-						.breaks( getBreaks( l.data, 7, true ) )
+						.breaks( getBreaks( l.data, 7, true, scale ) )
 						.bin( l.data );
 				}
 				$("#loader").remove();
@@ -280,9 +291,9 @@ function load_layer( l )
 	}
 }
 
-function getBreaks( data, length, bin ){
+function getBreaks( data, length, bin, scale ){
 	var arr = [],
-		breaks = [];
+		breaks = scale ? window[scale+"Scale"].slice() : [];
 	if ( !bin ){
 		var i=data.length; while(i--){
 			if ( $.inArray( data[i].val, arr ) == -1 )
@@ -298,9 +309,11 @@ function getBreaks( data, length, bin ){
 		else if ( range < 1000 ) round = 10;
 		else if ( range < 100000 )round = 100;
 		else round = 1000;
-		breaks.push(arr[0]);
-		for ( i=1; i<Math.min(arr.length,length); i++ ){
-			breaks.push(Math.round(arr[i*n]/round)*round);
+		breaks.unshift(arr[0]);
+		if ( !scale ){
+			for ( i=1; i<Math.min(arr.length,length); i++ ){
+				breaks.push(Math.round(arr[i*n]/round)*round);
+			}
 		}
 		breaks.push(arr[arr.length-1]);
 		return breaks;
