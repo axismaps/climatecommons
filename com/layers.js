@@ -169,7 +169,7 @@ function load_layer( l )
 						load_layer( month.data.layers[month.data.i] );
 					})
 			)
-			.append( "<p id='current'>" + l.children[0].name + "</p>" )
+			.append( "<p id='current'>" + l.children[l.children.length-1].name + "</p>" )
 			.append( 
 				$("<button type='button' class='step'>&gt;</button>")
 					.click( function(){
@@ -182,8 +182,8 @@ function load_layer( l )
 			);
 
 		$("#legend #stepper").append(div1).append(div2);
-		$("#current")[0].data = { i: 0, layers: l.children };
-		load_layer( l.children[0] );
+		$("#current")[0].data = { i: l.children.length-1, layers: l.children };
+		load_layer( l.children[l.children.length-1] );
 		return l.children;
 	}
 	var c =  colors[ l.color ];
