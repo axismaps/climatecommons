@@ -231,6 +231,7 @@ function build_legend( l )
 	}
 	for( var i = 1; i < breaks.length; i++ )
 	{
+		if ( breaks[ i - 1 ] >= breaks[ i  ] ) continue;
 		$( "#legend #items" )
 			.append(
 				$( document.createElement( 'span' ) )
